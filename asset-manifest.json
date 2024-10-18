@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/DiegoMtzVar/DiegoMtzVar.github.io/static/css/main.a179da6e.css",
-    "main.js": "/DiegoMtzVar/DiegoMtzVar.github.io/static/js/main.5b22e98b.js",
+    "main.js": "/DiegoMtzVar/DiegoMtzVar.github.io/static/js/main.14b330e0.js",
     "static/js/453.55e4a18e.chunk.js": "/DiegoMtzVar/DiegoMtzVar.github.io/static/js/453.55e4a18e.chunk.js",
     "index.html": "/DiegoMtzVar/DiegoMtzVar.github.io/index.html",
     "main.a179da6e.css.map": "/DiegoMtzVar/DiegoMtzVar.github.io/static/css/main.a179da6e.css.map",
-    "main.5b22e98b.js.map": "/DiegoMtzVar/DiegoMtzVar.github.io/static/js/main.5b22e98b.js.map",
+    "main.14b330e0.js.map": "/DiegoMtzVar/DiegoMtzVar.github.io/static/js/main.14b330e0.js.map",
     "453.55e4a18e.chunk.js.map": "/DiegoMtzVar/DiegoMtzVar.github.io/static/js/453.55e4a18e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a179da6e.css",
-    "static/js/main.5b22e98b.js"
+    "static/js/main.14b330e0.js"
   ]
 }
