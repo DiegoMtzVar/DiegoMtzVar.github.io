@@ -1,0 +1,47 @@
+html, body, #root {
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.App{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.menu-button {
+  background-color: #1a65c7;
+  color: white;
+  border: 2px solid #000000;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  max-width: 20vw;
+  min-height: 10vh;
+  transition: ease-in-out 0.2s;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 50px;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+h1 {
+  flex-grow: 1;
+}
+
+
+
+
+
