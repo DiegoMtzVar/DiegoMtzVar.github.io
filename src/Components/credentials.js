@@ -1,5 +1,5 @@
 import { getAuth, GoogleAuthProvider, signInWithPopup, signInAnonymously, deleteUser , updateProfile} from "firebase/auth";
-import './credentials.css';
+import './styles/credentials.css';
 import { getDatabase, goOffline, goOnline } from "firebase/database";
 
 function randomElement(array) {
@@ -33,13 +33,7 @@ export function SignIn() {
 
 export function LogOut() {
     return (
-        <>
-        <div className="logout-background">
-            <div className="logout-container">
-                <button className="logout-button" onClick={_logout}>Log out</button>
-            </div>
-        </div>
-        </>
+        <button className="logout-button menu-button" onClick={_logout}>Log out</button>
     );
 }
 
@@ -98,10 +92,7 @@ function _logout() {
     const auth = getAuth();
     const user = auth.currentUser;
 
-    // Disconnect from the database before signing out
-    goOffline(getDatabase());
-    goOnline(getDatabase());
-
+    
     if (user.isAnonymous) {
         deleteUser(user).then(() => {
             console.log('Anon User deleted');
@@ -109,6 +100,10 @@ function _logout() {
             console.log(error);
         });
     }
+    
+    // Disconnect from the database before signing out
+    goOffline(getDatabase());
+    goOnline(getDatabase());
 
     auth.signOut().then(() => {
         console.log('User signed out');

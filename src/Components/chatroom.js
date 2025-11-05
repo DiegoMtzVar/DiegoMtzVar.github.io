@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getFirestore, collection, addDoc, query, orderBy, limit, serverTimestamp } from "firebase/firestore";
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { auth } from '../App';
 
-import './chatroom.css';
+import './styles/chatroom.css';
 
 function ChatMessage(props) {
   const { author, text, uid } = props.message;
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
+  if (text.trim() === '') return null;
   return (
     <div className={`message ${messageClass}`}>
       <h1>{author}</h1>
@@ -24,7 +25,7 @@ export default function ChatRoom() {
   const messagesQuery = query(collection(db, 'messages'),orderBy('createdAt'), limit(25));
   const [messages] = useCollectionData(messagesQuery, { idField: 'id' });
   const [formValue , setFormValue] = useState('');
-
+  const focus = React.useRef();
 
   const sendMessage = async(e) => {
     e.preventDefault();
@@ -49,6 +50,7 @@ export default function ChatRoom() {
           console.error('Error getting ID token:', error);
         });
       }
+
       setFormValue('');
       return;
     }
@@ -58,17 +60,22 @@ export default function ChatRoom() {
       text: formValue,
       uid: auth.currentUser.uid,
       createdAt: serverTimestamp(),
-    });
+      });
 
-    setFormValue('');
+      setFormValue('');
     }
+
+    useEffect(() => {
+      focus.current.scrollIntoView({ behavior: 'smooth' });
+    }, [messages, focus]);
   
     return (
     <>
         <div className='chat-container'>
-            {messages && messages.map((msg, index) => (
-              <ChatMessage key={msg.id || index} message={msg} />
-            ))}
+          {messages && messages.map((msg, index) => (
+            <ChatMessage key={msg.id || index} message={msg} />
+          ))}
+          <div ref={focus}></div>
         </div>
         <form className='chat-input' onSubmit={sendMessage}>
             <input className='message-input' type='text'  placeholder='Type a message...' value={formValue} onChange={(e) => setFormValue(e.target.value)}/>

@@ -1,0 +1,77 @@
+.minesweeper-game {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.ms-tile {
+  background-size: cover;
+}
+
+.closed {
+  background-image: url(Minesweeper/closed.svg);
+}
+
+.zero {
+    background-image: url(Minesweeper/Numbers/type0.svg);
+}
+
+.one {
+    background-image: url(Minesweeper/Numbers/type1.svg);
+}
+
+.two {
+    background-image: url(Minesweeper/Numbers/type2.svg);
+}
+
+.three {
+    background-image: url(Minesweeper/Numbers/type3.svg);
+}
+
+.four {
+    background-image: url(Minesweeper/Numbers/type4.svg);
+}
+
+.five {
+    background-image: url(Minesweeper/Numbers/type5.svg);
+}
+
+.six {
+    background-image: url(Minesweeper/Numbers/type6.svg);
+}
+
+.seven {
+    background-image: url(Minesweeper/Numbers/type7.svg);
+}
+
+.eight {
+    background-image: url(Minesweeper/Numbers/type8.svg);
+}
+
+.mine {
+    background-image: url(Minesweeper/mine.svg);
+}
+
+.flagged {
+    background-image: url(Minesweeper/flag.svg);
+}
+
+.exploded {
+    background-image: url(Minesweeper/mine_red.svg);
+}
+
+.misflagged {
+    background-image: url(Minesweeper/mine_wrong.svg);
+}
+
+.start {
+    background-image: url(Minesweeper/start.svg);
+}
+
+.group-display {
+  display: flex;
+  flex-direction: column;
+  font-size: 5px;
+}

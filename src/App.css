@@ -5,10 +5,48 @@ html, body, #root {
   padding: 0;
 }
 
+.important {
+  background-color: #093607 !important;
+}
+.important:hover {
+  border: 2px solid #093607 !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.loginRequired {
+  background-color: #282c34;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.hidden {
+  display: none;
+}
+
 .App{
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+.App-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #282c34;
+  padding: 3vw;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  justify-content: right;
+}
+
+.menu {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #282c34;
+  color: white;
 }
 
 .menu-button {
@@ -20,28 +58,24 @@ html, body, #root {
   padding: 10px 20px;
   font-size: 1.2rem;
   cursor: pointer;
+  min-width: fit-content;
   max-width: 20vw;
   min-height: 10vh;
   transition: ease-in-out 0.2s;
 }
 
-.App-header {
-  background-color: #282c34;
-  padding: 50px;
-  min-height: 10vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: left;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.menu-button:hover {
+  border: 2px solid #1a65c7;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
-h1 {
-  flex-grow: 1;
+.fullScreenButton {
+  z-index: 999;
+  display: absolute;
+  padding: 2%;
+  margin: 3% 3% auto auto;
+  font-size: 2rem;
 }
-
-
 
 
 
