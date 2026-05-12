@@ -130,26 +130,36 @@ function checkWinner(board) {
 
 function Board(props) {
   const { board, updateBoard, resetGame, turn } = props;
-  
+  const [winner, setWinner] = useState(null);
+
   useEffect(() => {
     const winner = checkWinner(board);
-    if (winner && winner !== "Tie") {
-      alert(`${winner} wins!`);
+    if (winner) {
+      //alert(`${winner} wins!`);
+      setWinner(winner);
       setTimeout(() => {
+        setWinner(null);
         resetGame();
-      }, 1000);
-    } else if (winner === "Tie") {
-      alert("It's a tie!");
-      setTimeout(() => {
-        resetGame();
-      }, 1000);
+      }, 1500);
     }
   }, [board, resetGame]);
 
   return (
-    <div>
+    <div className="ttt-game-container"> 
+      
       <h1>{turn}</h1>
       <div className="ttt-board">
+
+        {winner === "Tie" && <div className="popup">
+          <h1 className="tie">It's a Tie!</h1>
+        </div>}
+        {winner === "X" && <div className="popup">
+          <h1 className="X">X Wins</h1>
+        </div>}
+        {winner === "O" && <div className="popup">
+          <h1 className="O">O Wins</h1>
+        </div>}
+
         {board.map((cell, index) => (
           <div key={index} className={`ttt-tile ${cell}`} onClick={() => {updateBoard(index)}}>
             {cell !== 0 ? cell : " "}
@@ -206,6 +216,7 @@ export default function TicTacToe() {
       if (currentTurn !== myTurn) return;
 
       update(boardRef, { [index]: myTurn });
+      newBoard[index] = myTurn;
 
       if (lobby.val().player2 === "Computer") {
         if (newBoard.filter(cell => cell === 0).length === 0 || checkWinner(newBoard)) {
